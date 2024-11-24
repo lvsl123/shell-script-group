@@ -15,7 +15,7 @@ invert:
 
 bashrc:
 - straight from ubuntu with change in ls and command prompt (user@archlinux) colors
-- put it in your home directory and change filename to .bashrc to use the script. It might occur that you already have the same file in your home directory. Backup that file up first before using this bashrc
+- put it in your home directory and change filename to .bashrc to use the script. It might occur that you already have the same file in your home directory. Backup that file up first before using this bashrc. For more info please refer to your linux distribution.
 
 Ways to use the files:
 - adjustall: put the file along with a list of scripts that will run once you login the gui so it will do all the adjustment autonatically

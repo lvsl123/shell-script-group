@@ -12,3 +12,6 @@ isinvert:
 
 invert: 
 - invert/uninvert the screen and save the change to isinvert
+
+bashrc:
+- straight from ubuntu with change in ls and command prompt (user@archlinux) colors

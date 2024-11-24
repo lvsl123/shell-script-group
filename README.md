@@ -3,7 +3,7 @@ Bash scripts to brighten the day in linux
 What the files above do
 
 adjustall: 
-- How to use - ./adjustall <value from 0.23 to 1.1>
+- How to use - ./adjustall <value from 0.24 to 1.1>
 - adjust the screen brightness and also other color problems
 - requires xcalib and xrandr.
 - may not work on wayland but works on xfce 4.18

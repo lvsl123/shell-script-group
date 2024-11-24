@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Program to adjust screen brightness
+
+# rgb 255, 242, 250 0.92117 0.949019 0.98039812
+
+brightValue=$(echo "scale=0;(${1}*1000)/1" | bc)
+#echo $brightValue
+
+if [ $brightValue -lt 240 ]; then
+    echo 'a screen too dim is bad for your eyes'
+    exit 1
+fi
+
+if [ $brightValue -gt 1100 ]; then
+    echo 'Excessive Brightness Detected'
+    exit 1
+fi
+
+
+xrandr --output eDP-1  --brightness "${1}" &> /dev/null --gamma '1.05:0.9:1' --verbose
+
+
+xcalib -red 1 1.0 97.0  -green 1 1.0 94.0 -blue 1 1.0 98.0 -a &> /dev/null
+#xrandr --output eDP-1 --brightness ${1} --verbose
+#xrandr --output eDP-1
+
+# if the screen was is inverted reapply the modification
+isinvert=$(cat /home/js/isinvert)
+if [ $isinvert = 'true' ]; then
+    xcalib -i -a &> /dev/null
+else
+    echo $isinvert &> /dev/null
+fi
+
+#--gamma '0.9686275:0.9411765:0.9803529168'

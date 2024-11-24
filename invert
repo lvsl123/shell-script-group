@@ -1,0 +1,13 @@
+#!/bin/bash
+isinvert=$(cat /home/js/isinvert)
+
+if [ $isinvert = 'true' ]; then
+    echo $isinvert
+    echo 'false' > ~/isinvert
+else
+    echo 'true' > ~/isinvert
+fi
+
+# invert all colors of the screen
+xcalib -i -a &> /dev/null
+

@@ -1,13 +1,18 @@
 #!/bin/bash
-isinvert=$(cat /home/js/isinvert)
 
-if [ $isinvert = 'true' ]; then
-    echo $isinvert
-    echo 'false' > ~/isinvert
-else
-    echo 'true' > ~/isinvert
-fi
+read isinvert < ~/isinvert
+
+# if [ $isinvert = 'true' ]; then
+#
+#     echo $isinvert
+#     echo 'false' > ~/isinvert
+# else
+#     echo 'true' > ~/isinvert
+# fi
 
 # invert all colors of the screen
-xcalib -i -a &> /dev/null
 
+$isinvert && isinvert=false || isinvert=true
+echo $isinvert > ~/isinvert
+
+xcalib -i -a &> /dev/null || exit 1

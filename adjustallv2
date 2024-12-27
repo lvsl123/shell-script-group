@@ -11,6 +11,10 @@
 # - gammastep - works on wlroots wayland. Also works on my xfce 4.20 using X11 instead. 
 #               It might as well also work on your X11 as well.
 # - bash if you use something other than linux
+#
+# Additional requirements:
+# - you to hardcode or change settings for your own need. But it should be easily 
+#   readable. Search for keyword gammastep and xcalib
 # Others: 
 # - xcalib if you want to adjust the colors as well. Xcalib does not work on Wayland
 # ----------------------------------------------

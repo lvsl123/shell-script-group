@@ -34,6 +34,7 @@ fi
 
 # adjust brightness using gammastep suppressing errors if its x11 instead
 # PS: the -O is the letter O
+# -l <lattutude:longitude> -b day:night -g <red:green:blue> -O <temperature> -P (reset everything) -r (no fading animation)
 gammastep -l 22:101 -b ${1}:${1} -g 0.7 -O 6040 -P -r &> /dev/null
 #xrandr --output eDP-1  --brightness "${1}"  --gamma 0.56 &> /dev/null #--gamma '1.05:0.9:1' --verbose
 

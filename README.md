@@ -2,11 +2,18 @@ Bash scripts to brighten the day in linux
 
 What the files above do
 
+adjustallv2 
+- How to use - ./adjustallv2 <value from 0.18 to 1.1>
+- adjust screen brightness and also color temperature
+- requires gammastep to work
+- xcalib in the code will work only on X11
+- works on wlroots wayland and my current Xfce 4.20 with X11 instead of wayland
+
 adjustall: 
 - How to use - ./adjustall <value from 0.24 to 1.1>
 - adjust the screen brightness and also other color problems
 - requires xcalib and xrandr. Having bc (calculator in command line) is highly recommended. If you don't want to have autocheck for brightness value errors then you can hardcode the variable brightnessValue or remove all the checks. Do it in your own risk, as setting the wrong brightness especially via command line can make you unable to view the contents of the screen
-- may not work on wayland but works on xfce 4.18
+- does not work on wayland but works on xfce 4.18 and 4.20
 
 isinvert: 
 - holds either true or false as reference of the screen inversion

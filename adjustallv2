@@ -14,7 +14,9 @@
 #
 # Additional requirements:
 # - you to hardcode or change settings for your own need. But it should be easily 
-#   readable. Search for keyword gammastep and xcalib
+#   readable. Search for keyword gammastep and xcalib. But if you have a well 
+#   calibrated monitor already, you might want to change everything back to its
+    original unset values, and uncomment the xcalib command
 # Others: 
 # - xcalib if you want to adjust the colors as well. Xcalib does not work on Wayland
 # ----------------------------------------------

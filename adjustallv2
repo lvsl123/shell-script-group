@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Program to adjust screen brightness
+# adjustallv2 -
+# This program allows adjusting brightness via the 
+# command line by inputting a value between 0-1. However in the case I set the limit from 
+# min 0.18 and max 1.1 to avoid accidentally typing the wrong input
+# 
+# Program required:
+# - bc - for the floating point comparing to work
+# - gammastep - works on wlroots wayland. Also works on my xfce 4.20 using X11 instead. 
+#               It might as well also work on your X11 as well.
+# - bash if you use something other than linux
+# Others: 
+# - xcalib if you want to adjust the colors as well. Xcalib does not work on Wayland
+# ----------------------------------------------
+
+
+# rgb 255, 242, 250 0.92117 0.949019 0.98039812
+
+brightValue=$(echo "scale=0;(${1}*1000)/1" | bc)
+echo $brightValue
+#brightValue=${1}
+
+if [[ $brightValue -lt 180 ]]; then
+    echo 'a screen too dim is bad for your eyes'
+    exit 1
+fi
+
+if [[ $brightValue -gt 1100 ]]; then
+    echo 'Excessive Brightness Detected'
+    exit 1
+fi
+
+# adjust brightness using gammastep suppressing errors if its x11 instead
+# PS: the -O is the letter O
+gammastep -l 22:101 -b ${1}:${1} -g 0.7 -O 6040 -P -r &> /dev/null
+#xrandr --output eDP-1  --brightness "${1}"  --gamma 0.56 &> /dev/null #--gamma '1.05:0.9:1' --verbose
+
+# adjust the colors using xcalib. Does not work on wayland
+xcalib -red 0.85 1.0 95.0  -green 0.9 0.5 91.0 -blue 1.05 1.2 98.0 -a &> /dev/null
+#xrandr --output eDP-1 --brightness ${1} --verbose
+#xrandr --output eDP-1
+
+# if the screen was is inverted reapply the modification
+isinvert=$(cat /home/js/isinvert)
+if [ $isinvert = 'true' ]; then
+    xcalib -i -a &> /dev/null
+else
+    echo $isinvert &> /dev/null
+fi
+
+#--gamma '0.9686275:0.9411765:0.9803529168'

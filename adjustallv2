@@ -43,6 +43,7 @@ fi
 # -l <lattutude:longitude> -b day:night -g <red:green:blue> -O <temperature> -P (reset everything) -r (no fading animation)
 gammastep -l 22:101 -b ${1}:${1} -g 0.7 -O 6040 -P -r &> /dev/null
 # If you don't have any color problems with the screen uncomment this and comment out the above code
+# Note that your color temperature will also be adjusted as well.
 #gammastep -l 22:101 -b ${1}:${1} -g 1 -O 6500 -P -r &> /dev/null
 #xrandr --output eDP-1  --brightness "${1}"  --gamma 0.56 &> /dev/null #--gamma '1.05:0.9:1' --verbose
 

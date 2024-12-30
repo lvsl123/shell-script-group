@@ -2,13 +2,16 @@
 
 # Program to adjust screen brightness
 # in here I'll assume everything is in the home directory apart from absolute paths
+# Brightness limit is from 0.18 to 1.1. Should you decide you do not want it. You are
+# free to remove it. But careful with what you type if you do so. Your screen certainly 
+# can whiten or black out
 
-# rgb 255, 242, 250 0.92117 0.949019 0.98039812
 
+# --- Limit starts here. If you decide that you don't need it feel free to remove it
 brightValue=$(echo "scale=0;(${1}*1000)/1" | bc)
 #echo $brightValue
 
-if [ $brightValue -lt 240 ]; then
+if [ $brightValue -lt 180 ]; then
     echo 'a screen too dim is bad for your eyes'
     exit 1
 fi
@@ -17,6 +20,7 @@ if [ $brightValue -gt 1100 ]; then
     echo 'Excessive Brightness Detected'
     exit 1
 fi
+# --- Limit ends here
 
 
 xrandr --output eDP-1  --brightness "${1}" &> /dev/null --gamma '1.05:0.9:1' --verbose

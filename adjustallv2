@@ -38,6 +38,10 @@ if [[ $brightValue -gt 1100 ]]; then
     exit 1
 fi
 
+# set the default temeperature to 5400 if nothing is given for the 2nd parameter
+temperature=${2}
+[ -z $temperature ] && temperature=5400
+
 # adjust brightness using gammastep suppressing errors if its x11 instead
 # PS: the -O is the letter O
 # -l <lattutude:longitude> -b day:night -g <red:green:blue> -O <temperature> -P (reset everything) -r (no fading animation)

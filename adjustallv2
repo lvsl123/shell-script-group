@@ -54,11 +54,12 @@ temperature=${2}
 # adjust brightness using gammastep suppressing errors if its x11 instead
 # PS: the -O is the letter O
 # -l <lattutude:longitude> -b day:night -g <red:green:blue> -O <temperature> -P (reset everything) -r (no fading animation)
-gammastep -l 22:101 -b ${1}:${1} -g 0.7 -O 6040 -P -r &> /dev/null
+gammastep -l 22:101 -b ${1}:${1} -g 0.7 -O ${2} -P -r &> /dev/null
+
 # If you don't have any color problems with the screen uncomment this and comment out the above code
 # The suggested day time color temperature is 6500, but fine color calibration is out of my expertise
-#gammastep -l 22:101 -b ${1}:${1} -g 1 -O 6500 -P -r &> /dev/null
-#xrandr --output eDP-1  --brightness "${1}"  --gamma 0.56 &> /dev/null #--gamma '1.05:0.9:1' --verbose
+#gammastep -l 22:101 -b ${1}:${1} -O 6500 -P -r &> /dev/null
+#xrandr --output eDP-1  --brightness "${1}"  --gamma 1 &> /dev/null
 
 # adjust the colors using xcalib. Does not work on wayland
 xcalib -red 0.85 1.0 95.0  -green 0.9 0.5 91.0 -blue 1.05 1.2 98.0 -a &> /dev/null

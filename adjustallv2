@@ -57,7 +57,7 @@ xcalib -red 0.85 1.0 95.0  -green 0.9 0.5 91.0 -blue 1.05 1.2 98.0 -a &> /dev/nu
 #xrandr --output eDP-1
 
 # if the screen was is inverted reapply the modification
-isinvert=$(cat /home/js/isinvert)
+read isninvert < ~/isinvert
 if [ $isinvert = 'true' ]; then
     xcalib -i -a &> /dev/null
 else

@@ -1,10 +1,14 @@
 #!/bin/bash
 
 # Program to adjust screen brightness
-# adjustallv2 -
+# adjustallv2 - adjustall ${1} ${2} 
+# ${1} for brightmess (0-1) 
+# ${2} for color temperature
+#
 # This program allows adjusting brightness via the 
-# command line by inputting a value between 0-1. However in the case I set the limit from 
-# min 0.18 and max 1.1 to avoid accidentally typing the wrong input
+# command line by inputting a value between 0-1. 
+# I set the limit from  min 0.18 and max 1.1. 
+# If you decide to disable the limit, pay extra attention of the brightness you type
 # 
 # Program required:
 # - bc - for the floating point comparing to work
@@ -24,19 +28,22 @@
 
 # rgb 255, 242, 250 0.92117 0.949019 0.98039812
 
+# --- Limit begin here. Feel free to delete the code here if you decide not to need it
 brightValue=$(echo "scale=0;(${1}*1000)/1" | bc)
 echo $brightValue
 #brightValue=${1}
 
+# whole script exits with error if the limits are too low or high
 if [[ $brightValue -lt 180 ]]; then
     echo 'a screen too dim is bad for your eyes'
     exit 1
 fi
 
 if [[ $brightValue -gt 1100 ]]; then
-    echo 'Excessive Brightness Detected'
+    echo 'Excessive Brightness Detected.'
     exit 1
 fi
+# --- Limit ends here
 
 # set the default temeperature to 5400 if nothing is given for the 2nd parameter
 temperature=${2}

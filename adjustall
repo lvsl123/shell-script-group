@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Program to adjust screen brightness
+# in here I'll assume everything is in the home directory apart from absolute paths
 
 # rgb 255, 242, 250 0.92117 0.949019 0.98039812
 
@@ -26,7 +27,7 @@ xcalib -red 1 1.0 97.0  -green 1 1.0 94.0 -blue 1 1.0 98.0 -a &> /dev/null
 #xrandr --output eDP-1
 
 # if the screen was is inverted reapply the modification
-isinvert=$(cat /home/js/isinvert)
+read isinvert < ~/isinvert
 if [ $isinvert = 'true' ]; then
     xcalib -i -a &> /dev/null
 else

@@ -7,8 +7,10 @@
 #
 # This program allows adjusting brightness via the 
 # command line by inputting a value between 0-1. 
-# I set the limit from  min 0.18 and max 1.1. 
-# If you decide to disable the limit, pay extra attention of the brightness you type
+
+# Brightness limit is from 0.18 to 1.1. Should you decide you do not want it. You are
+# free to remove it. But careful with what you type if you do so. Your screen certainly 
+# can whiten or black out
 # 
 # Program required:
 # - bc - for the floating point comparing to work

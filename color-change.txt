@@ -1,0 +1,20 @@
+for (let someCode of document.getElementsByTagName("code")) { 
+    someCode.style.backgroundColor = "#dddddd";
+    someCode.style.color = "black";
+}
+
+
+
+// xfce website specific
+for (let someCode of document.getElementsByClassName("codebox")) {
+    someCode.style.backgroundColor = "#dddddd";
+    someCode.style.color = "black";
+    someCode.style.border = "none";
+}
+
+
+// for Kindle Cloud Reader
+someCode = document.getElementById("reader");
+    someCode.style.backgroundColor = "#dddddd";
+    someCode.style.color = "black";
+    someCode.style.border = "none";

@@ -1,3 +1,13 @@
+/* Javascript for changing background and text color on 
+ * certain parts of a website
+ * --- For example for contents under [quote] or <code> tag where it is 
+ *     common for websites to color it black instead of white. It hurts 
+ *     my eyes when I am viewing them under low light and had to invert 
+ *     the screen color to prevent eye sore.
+ * --- The first bit is more general. Sometimes I edit the base code to 
+ *     use on specific sites I visit more often.
+*/
+
 for (let someCode of document.getElementsByTagName("code")) { 
     someCode.style.backgroundColor = "#dddddd";
     someCode.style.color = "black";
